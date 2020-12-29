@@ -1,0 +1,23 @@
+
+ .bodyAnneeScolaire{
+  margin-top: 8%;
+
+}
+
+.cardList
+{
+ height: 500px;
+ background-color: white;
+ margin-top: 1%;
+}
+
+.cardFormRechrcher{
+ background-color: white;
+ padding-bottom: 3%;
+ height: 5%;
+}
+
+button{
+ margin-bottom: 5px;
+ margin-right: 1px;
+}

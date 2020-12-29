@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  
+  
+  
+  <div class="form-group">
+    <label for="exampleInputEmail1">Libellé</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+     placeholder="Ex:2010-2011" required name="libelle" ngModel [(ngModel)]="filiere.libelle">
+  </div>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Date de création"  name="dateCreation" ngModel>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <br />
+
+  
+
+
+  <button type="submit" class="btn btn-success" [disabled]="f.invalid">Modifier</button>
+</form>

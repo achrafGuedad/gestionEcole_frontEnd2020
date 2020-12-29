@@ -1,0 +1,23 @@
+<form (ngSubmit)="ajouterSalle(f)" #f="ngForm">
+  
+  
+  
+  <div class="form-group">
+    <label for="exampleInputEmail1">Libellé</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required name="libelle" ngModel>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Localisation</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required name="localisation" ngModel>
+  </div>
+
+ 
+
+  <br />
+
+  
+
+
+  <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Ajouter</button>
+</form>

@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Année Scolaire</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex:2010-2011" required name="year" ngModel
+    [(ngModel)]="anneeScolaireToUpdate.anneeScolaire">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Date de debut du semestre 1</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" required name="dateDebutS_1" ngModel
+    [(ngModel)]="anneeScolaireToUpdate.dateDebutSemestre_1">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Date de fin du semestre 1</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex:2010-2011" required name="dateFinS_1" ngModel
+    [(ngModel)]="anneeScolaireToUpdate.dateFinSemestre_1" >
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Date de debut du semestre 2</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex:2010-2011" required name="dateDebutS_2" ngModel 
+    [(ngModel)]="anneeScolaireToUpdate.dateDebutSemestre_2">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Date de fin du semestre 2</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex:2010-2011" required name="dateFinS_2" ngModel
+    [(ngModel)]="anneeScolaireToUpdate.dateFinSemestre_2">
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="f.invalid">Modifier</button>
+</form>

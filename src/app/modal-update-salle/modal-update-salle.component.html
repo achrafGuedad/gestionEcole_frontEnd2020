@@ -1,0 +1,22 @@
+<form (ngSubmit)="onUpdate(form)" #form="ngForm">
+  
+  
+  
+  <div class="form-group">
+    <label for="exampleInputEmail1">Libellé</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+    placeholder="" required name="libelle" ngModel [(ngModel)]="salle.libelle" >
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Libellé</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+    placeholder="" required name="localisation" ngModel [(ngModel)]="salle.localisation"  >
+  </div>
+  <br />
+
+  
+
+
+  <button type="submit" class="btn btn-success" [disabled]="form.invalid">Modifier</button>
+</form>

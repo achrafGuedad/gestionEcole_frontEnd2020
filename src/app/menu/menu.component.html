@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+<!--         <link href="css/styles.css" rel="stylesheet" />
+ -->        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/datatables-demo.js"></script>
+    </head>
+    <body class="sb-nav-fixed">
+<!--    END NAV MENU ADMIN --->
+
+<div id="layoutSidenav" *ngIf="auth.isAdmin()">
+  <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+              <div class="nav">
+                 
+                  <a class="nav-link" href="tables.html" routerLink="/AnneeScolaire" >
+                      
+                      Gestion des années scolaire
+                  </a>
+                  
+
+                    
+                 
+                     <a class="nav-link" routerLink="/Filiere" >
+                      
+                      Gestion des filières
+                  </a>
+                  <a class="nav-link" routerLink="/Niveau">
+                      
+                      Gestion des niveaux scolaire
+                  </a>
+
+                  <a class="nav-link" routerLink="/Matiere">
+                      
+                    Gestion des matières
+                </a>
+
+                  <a class="nav-link" routerLink="/Salle">
+                      
+                    Gestion des salles
+                </a>
+
+                <a class="nav-link" routerLink="/Admin">
+                      
+                  Administration
+              </a>
+              </div>
+          </div>
+          
+      </nav>
+  </div>
+  
+</div>
+<!-- -------------  ----------->
+<div id="layoutSidenav"  *ngIf="auth.isSecretaire()">
+  <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+              <div class="nav">
+                 
+                  <a class="nav-link" href="tables.html" routerLink="/Inscription" >
+                      
+                      Gestion des inscriptions
+                  </a>
+                  
+
+                    
+                 
+                     <a class="nav-link" routerLink="/Reinscription" >
+                      
+                      Gestion des réinscriptions
+                  </a>
+                  <a class="nav-link" routerLink="/Etudiant">
+                      
+                      Gestion des étudiants
+                  </a>
+
+                  <a class="nav-link" routerLink="/Classe">
+                      
+                    Gestion des classes
+                </a>
+
+                
+              </div>
+          </div>
+          
+      </nav>
+  </div>
+  
+</div>
+<!--    NAV MENU SECRETAIRE --->
+
+<!--  END   NAV MENU SECRETAIRE --->
+<!--    ----------------------------------- -->
+<div id="layoutSidenav"  *ngIf="auth.isProf()">
+  <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+              <div class="nav">
+                 
+                  <a class="nav-link" routerLink="/Absence" >
+                      
+                      Absence
+                  </a>
+                  
+
+                    
+                 
+                     <a class="nav-link" routerLink="/Controle" >
+                      Saisir les notes
+                  </a>
+                  
+
+                
+              </div>
+          </div>
+          
+      </nav>
+  </div>
+  
+</div>
+
+<!--    NAV MENU PROFESSEUR --->
+
+<div id="layoutSidenav"  *ngIf="auth.isSurveillant()">
+  <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+              <div class="nav">
+                 
+                  <a class="nav-link" routerLink="/Absence" >
+                      
+                      Consultation des absences
+                  </a>
+                  
+
+                    
+                 
+                     <a class="nav-link" routerLink="/Planing" >
+                        Gestion des Emplois
+                      </a>
+                  
+                  <a class="nav-link" routerLink="/ConsulterDemandes" >
+                    Consultation des demandes
+                </a>
+                
+              </div>
+          </div>
+          
+      </nav>
+  </div>
+  
+</div>
+<!--  END   NAV MENU SECRETAIRE --->
+<!--    ----------------------------------- -->
+
+<!--    NAV MENU isSurveillant --->
+
+<!--  END   NAV MENU Surveillant --->
+<!--    ----------------------------------- -->
+
+<div id="layoutSidenav"  *ngIf="auth.isStudent()">
+  <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+              <div class="nav">
+                 
+                  <a class="nav-link" routerLink="/StudentAbsence" >
+                      
+                     absence
+                  </a>
+                  
+
+                    
+                 
+                     <a class="nav-link" routerLink="/NoteStudent" >
+                        Notes
+                      </a>
+                  
+                  <a class="nav-link" routerLink="/StudentPlan" >
+                    Emplois Du temps
+                </a>
+                <a class="nav-link" routerLink="/DemanderPapier" >
+                  Demandes des Papiers
+              </a>
+
+              <a class="nav-link" routerLink="/ConsultationDemandes" >
+                Suivi de Papiers 
+            </a>
+              </div>
+          </div>
+          
+      </nav>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+    </body> </html>

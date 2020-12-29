@@ -1,0 +1,52 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  
+  
+  
+  <div class="form-group">
+    <label for="exampleInputEmail1">Libellé</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+    placeholder="" required name="libelle" ngModel disabled [(ngModel)]="niveau.libelle">
+  </div>
+
+  <div class="form-group">
+
+    <select class="form-control" id="exampleFormControlSelect1" name="codeFiliere" ngModel   [(ngModel)]="niveau.filiere.libelle" disabled>
+         <option >{{niveau.filiere.libelle}}</option>
+      
+     </select>
+   
+   </div>
+
+  <br />
+
+  
+
+
+</form>
+
+<form (ngSubmit)="onUpdate(form)" #form="ngForm">
+  
+  
+  
+  <div class="form-group">
+    <label for="exampleInputEmail1">Libellé</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+    placeholder="" required name="libelle" ngModel  >
+  </div>
+
+  <div class="form-group">
+
+    <select class="form-control" id="exampleFormControlSelect1" name="codeFiliere" ngModel >
+         <option *ngFor="let f of listeFiliere"  value="{{f.codeFiliere}}">{{f.libelle}}</option>
+      
+     </select>
+   
+   </div>
+
+  <br />
+
+  
+
+
+  <button type="submit" class="btn btn-success" [disabled]="f.invalid">Enregistrer</button>
+</form>

@@ -1,0 +1,45 @@
+
+<div  class="bodyAnneeScolaire">  
+    
+    <mat-card  class="cardFormRechrcher">
+  <button type="button" class="btn btn-danger"(click)="loadClasses(idanneeScolaire,page,size)">
+      
+    Chercher</button>
+  <button type="button" class="btn btn-success" (click)="openDialog()">Ajouter année scolaire</button> 
+ 
+  <button type="button" class="btn btn-primary"  (click)="openDialogForUpdate(idanneeScolaire)" >Modifier Année scolaire</button>
+  <div class="form-group">
+
+   <select class="form-control" id="exampleFormControlSelect1"   [(ngModel)]="idanneeScolaire">
+        <option *ngFor="let year of listeYears" value="{{year.idAnneeScolaire}}">{{year.anneeScolaire}}</option>
+     
+    </select>
+  
+  </div>
+</mat-card>
+    <mat-card class="cardList">
+    
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Classe</th>
+            <th scope="col">Niveau</th>
+            <th scope="col">Filière</th>
+            <th scope="col">Action</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of listeClasses">
+            
+        <td>{{c.libelle}}</td>
+        <td>{{c.niveau.libelle}}</td>
+        <td>{{c.niveau.filiere.libelle}}</td>
+        <td><a (click)="openDialogForUpdate(c.idAnneeScolaire)" >Voir Matières </a></td>
+          </tr>
+        </tbody>
+      </table>
+
+</mat-card>
+
+</div>
