@@ -38,7 +38,7 @@ export class InscriptionComponent implements OnInit {
     this.reIn.getAllClasseOnCurrentDate().subscribe(
 
       (data)=>{
-        this.activateTable=1;
+
         this.listeClasse=data;
 
       },
@@ -56,8 +56,8 @@ export class InscriptionComponent implements OnInit {
 
   // CREATE ETUDIANT
 
-  saveEtudiant(etudiant:Etudiant,role:string,idClasse:number){
-this.inscriptionService.saveEtudiantApi(etudiant,role,idClasse).subscribe(
+/*   saveEtudiant(etudiant:Etudiant,role:string,idClasse:number){
+this.inscriptionService.saveEtudiantApi(etudiant).subscribe(
 
       (data:Inscription)=>{
         this.etudiantDetail=data;
@@ -68,12 +68,12 @@ this.inscriptionService.saveEtudiantApi(etudiant,role,idClasse).subscribe(
     );
 
   }
-
+ */
 
   //  on submit
   onSubmit(f:NgForm){
 
-    let etudiant:Etudiant=new Etudiant();
+    /* let etudiant:Etudiant=new Etudiant();
 
 
     let idClasse:number=Number(f.value['idClasse']);
@@ -84,7 +84,72 @@ this.inscriptionService.saveEtudiantApi(etudiant,role,idClasse).subscribe(
     etudiant.email=f.value['email'];
     etudiant.numTel=f.value['numTel'];
     this.saveEtudiant(etudiant,"ETUDIANT",idClasse);
-    this.activatePanelSave=1;
+    this.activatePanelSave=1; */
+
+
+    let inscription:Inscription=new Inscription();
+    let classe:Classe=new Classe();
+
+     inscription.etudiant.nom=f.value['nom'];
+     inscription.etudiant.prenom=f.value['prenom'];
+     inscription.etudiant.numTel=f.value['numTel'];
+     inscription.etudiant.email=f.value['email'];
+
+
+     //inscription.classe.idClasse=Number(f.value['idClasse']);
+     this.classeService.getClasseById(Number(f.value['idClasse'])).subscribe(
+      (data)=> {
+        console.log("class found");
+        classe=data;
+        inscription.classe=classe;
+        console.log(classe);
+
+    },
+
+
+    (error)=>{
+      console.log(error)
+    }
+
+
+     );
+
+     
+
+     inscription.paiement.septembre=f.value['septembre'];
+     inscription.paiement.octobre=f.value['octobre'];
+     inscription.paiement.novembre=f.value['novembre'];
+     inscription.paiement.decembre=f.value['decembre'];
+     inscription.paiement.janvier=f.value['janvier'];
+     inscription.paiement.fevrier=f.value['fevrier'];
+     inscription.paiement.mars=f.value['mars'];
+     inscription.paiement.mai=f.value['mai'];
+     inscription.paiement.avril=f.value['avril'];
+     inscription.paiement.juin=f.value['juin'] ;
+     inscription.paiement.juillet=f.value['juillet'];
+     inscription.paiement.fraixInscription=f.value['fraixInscription'];  
+     
+      this.inscriptionService.saveEtudiantApi(inscription,f.value['idClasse']).subscribe(
+        (data)=> {
+            console.log("data saved");
+            alert("données enregistrées")
+
+        },
+
+
+        (error)=>{
+          console.log(error)
+        }
+
+
+     ) ;
+      
+     
+     //console.log(inscription);
+
+
+
+   
 
 
   }

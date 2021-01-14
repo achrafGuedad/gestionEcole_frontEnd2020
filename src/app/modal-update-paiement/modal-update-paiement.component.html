@@ -1,0 +1,102 @@
+ 
+    
+  
+  <mat-card class="cardList">
+  
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    
+        
+        
+        
+
+     
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" checked  name="septembre" ngModel
+          [(ngModel)]="inscription.paiement.septembre"> 
+          <label class="form-check-label" for="inlineCheckbox1">Septembre</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"  name="octobre" ngModel
+          [(ngModel)]="inscription.paiement.octobre">
+          <label class="form-check-label" for="inlineCheckbox1">Octobre</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="novembre" ngModel
+          [(ngModel)]="inscription.paiement.novembre">
+          <label class="form-check-label" for="inlineCheckbox1">Novembre</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="decembre" ngModel
+          [(ngModel)]="inscription.paiement.decembre">
+          <label class="form-check-label" for="inlineCheckbox1">Décembre</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="janvier" ngModel
+          [(ngModel)]="inscription.paiement.janvier">
+          <label class="form-check-label" for="inlineCheckbox1">Janvier</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="fevrier" ngModel
+          [(ngModel)]="inscription.paiement.fevrier">
+          <label class="form-check-label" for="inlineCheckbox1">Février</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="mars" ngModel
+          [(ngModel)]="inscription.paiement.mars">
+          <label class="form-check-label" for="inlineCheckbox1">Mars</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="avril" ngModel
+          [(ngModel)]="inscription.paiement.avril">
+          <label class="form-check-label" for="inlineCheckbox1">Avril</label>
+        </div>
+
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="mai" ngModel
+          [(ngModel)]="inscription.paiement.mai">
+          <label class="form-check-label" for="inlineCheckbox1">Mai</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="juin" ngModel
+          [(ngModel)]="inscription.paiement.juin">
+          <label class="form-check-label" for="inlineCheckbox1">Juin</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="juillet" ngModel
+          [(ngModel)]="inscription.paiement.juillet">
+          <label class="form-check-label" for="inlineCheckbox1">Juillet</label>
+        </div>
+      
+
+         <br /> 
+
+         <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="fraixInscription" ngModel
+          [(ngModel)]="inscription.paiement.fraixInscription"> 
+          <label class="form-check-label" for="inlineCheckbox1">Fraix de scolarité</label>
+        </div>
+        
+        <br><br><br><br><br><br><br><br>
+
+
+        <button type="submit" class="btn btn-danger">Enregistrer</button>
+
+
+
+
+
+     
+    </form>
+
+</mat-card>
+

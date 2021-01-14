@@ -90,9 +90,6 @@ deleteSalle(idSalle:number) {
   }
   let uri_api="http://localhost:8080/Salle/deleteById/"+idSalle;
   return this.httpClient.delete(uri_api, {headers: new HttpHeaders({'Authorization': this.jwt})});
-
-
-
 }
 
 

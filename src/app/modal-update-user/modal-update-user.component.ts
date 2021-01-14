@@ -20,6 +20,9 @@ export class ModalUpdateUserComponent implements OnInit {
 
     this.user=new User();
     this.user=this.data
+    console.log(this.user);
+    console.log(this.user.userRoles[0].roleName);
+
   }
 
 
@@ -29,7 +32,7 @@ export class ModalUpdateUserComponent implements OnInit {
     user.username=f.value['username'];
     user.password=f.value['password'];
     console.log(this.user);  
-    this.adminService.updateUser(user,this.user.idUser).subscribe(
+     this.adminService.updateUser(user,this.user.idUser).subscribe(
 
 
 
@@ -40,7 +43,7 @@ export class ModalUpdateUserComponent implements OnInit {
 
     
     },(error)=>{console.log(error);}
-    );
+    ); 
     
     
     

@@ -40,6 +40,57 @@ export class ClasseService{
     });
   }
 
+
+
+  //get curent classes
+
+  getCurentClasses(){
+
+    if (this.jwt == null) {
+      this.jwt = this.auth.loadJWT();
+    }
+  
+
+    return  this.httpClient.get<Classe[]>("http://localhost:8080/Classe/getCurentClasses",{headers:new HttpHeaders({'Authorization':this.jwt})
+    });
+  }
+
+  // GET CLASSE BY ID
+  getClasseById(idClasse:number){
+
+    if (this.jwt == null) {
+      this.jwt = this.auth.loadJWT();
+    }
+  
+
+    return  this.httpClient.get<Classe>("http://localhost:8080/Classe/getClasseByIdClasse/"+idClasse,{headers:new HttpHeaders({'Authorization':this.jwt})
+    });
+  }
+
+// PUT CLASSE BY ID
+  public updateClasse(idClasse:number,classe:Classe){
+    if (this.jwt == null) {
+      this.jwt = this.auth.loadJWT();
+    }
+
+    let headers=new HttpHeaders();
+    headers.append('authorization',this.jwt);
+    return  this.httpClient.put("http://localhost:8080/Classe/modifieClasse/"+idClasse,classe,{headers:new HttpHeaders({'Authorization':this.jwt})});
+  }
+
+  // DELETE
+deleteClasse(idClasse:number) {
+  if (this.jwt == null) {
+    this.jwt = this.auth.loadJWT();
+  }
+  
+  return this.httpClient.delete("http://localhost:8080/Classe/deleteById/"+idClasse, {headers: new HttpHeaders({'Authorization': this.jwt})});
+}
+
+
+
+
+
   public saveClasseApi(classe:Classe){
     if (this.jwt == null) {
       this.jwt = this.auth.loadJWT();
@@ -94,6 +145,16 @@ export class ClasseService{
     //.map((res:Response)=>this.convertResponse(res));
   }
 
+
+
+  getClassesByAnneeScolaire(annee:string)  {
+    
+    if (this.jwt == null) {
+      this.jwt = this.auth.loadJWT();
+    }
+    return  this.httpClient.get<Classe[]>("http://localhost:8080/Classe/getClassesByAnneeScolaire/"+annee,
+    {headers: new HttpHeaders({'Authorization': this.jwt})});
+  }
 
 
 

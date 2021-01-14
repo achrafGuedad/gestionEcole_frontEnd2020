@@ -20,16 +20,16 @@ private uriApi_create:string;
       this.jwt = this.auth.loadJWT();
     }
 
-    return this.httpClient.get<Classe[]>("http://localhost:8080/Classe/getDate",
+    return this.httpClient.get<Classe[]>("http://localhost:8080/Classe/getAll",
       {headers: new HttpHeaders({'Authorization': this.jwt})});
     //.map((res:Response)=>this.convertResponse(res));
   }
 
-  public saveReinscriptionApi(inscription:Inscription){
+  public saveReinscriptionApi(inscription:Inscription,username:string){
     if (this.jwt == null) {
       this.jwt = this.auth.loadJWT();
     }
-    this.uriApi_create= "http://localhost:8080/Inscription/ReinscriptionEtudiant";
+    this.uriApi_create= "http://localhost:8080/Inscription/ReinscriptionEtudiant/"+username;
     let headers=new HttpHeaders();
     headers.append('authorization',this.jwt);
     return  this.httpClient.post(this.uriApi_create,inscription,{headers:new HttpHeaders({'Authorization':this.jwt})

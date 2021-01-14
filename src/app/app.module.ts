@@ -74,6 +74,10 @@ import { ModalUpdateUserComponent } from './modal-update-user/modal-update-user.
 import { ModalAjouterSalleComponent } from './modal-ajouter-salle/modal-ajouter-salle.component';
 import { SalleService } from './service/SalleService';
 import { ModalUpdateSalleComponent } from './modal-update-salle/modal-update-salle.component';
+import { ModalAjouterClasseComponent } from './modal-ajouter-classe/modal-ajouter-classe.component';
+import { ModalUpdateClasseComponent } from './modal-update-classe/modal-update-classe.component';
+import { ConsulterEtudiantComponent } from './consulter-etudiant/consulter-etudiant.component';
+import { ModalUpdatePaiementComponent } from './modal-update-paiement/modal-update-paiement.component';
 
 
 
@@ -97,7 +101,7 @@ const appRoutes: Routes= [
     { path: 'Niveau' , component: NiveauComponent ,canActivate: [AuthGuard]},
     { path: 'Matiere' , component: MatiereComponent,canActivate: [AuthGuard] },
     { path: 'Classe' , component: ClasseComponent },
-    { path: 'Etudiant' , component: EtudiantComponent },
+    { path: 'ConsulterEtudiant' , component: ConsulterEtudiantComponent },
     { path: 'Absence' , component: AbsenceComponent },
     { path: 'CreatePlaning/:idClasse' , component: CreatePlaningComponent },
     { path: 'ShowPlaning/:idClasse' , component: ShowPlaningComponent },
@@ -169,7 +173,11 @@ const appRoutes: Routes= [
     ModalAjouterUserComponent,
     ModalUpdateUserComponent,
     ModalAjouterSalleComponent,
-    ModalUpdateSalleComponent
+    ModalUpdateSalleComponent,
+    ModalAjouterClasseComponent,
+    ModalUpdateClasseComponent,
+    ConsulterEtudiantComponent,
+    ModalUpdatePaiementComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(appRoutes),FormsModule,HttpClientModule,ReactiveFormsModule,HttpModule,
@@ -190,6 +198,7 @@ const appRoutes: Routes= [
   bootstrap: [AppComponent],
   entryComponents: [FormAnneeScolaireComponent,FormUpdateAnneeScolaireComponent,ModalAjouterFiliereComponent,
     ModalUpdateFiliereComponent,ModalAjouterNiveauComponent,ModalUpdateNiveauComponent,ModalAjouterMatiereComponent,
-    ModalUpdateMatiereComponent,ModalAjouterUserComponent,ModalUpdateUserComponent,ModalAjouterSalleComponent,ModalUpdateSalleComponent]
+    ModalUpdateMatiereComponent,ModalAjouterUserComponent,ModalUpdateUserComponent,ModalAjouterSalleComponent,ModalUpdateSalleComponent,
+    ModalAjouterClasseComponent,ModalUpdateClasseComponent,ModalUpdatePaiementComponent]
 })
 export class AppModule { }

@@ -1,8 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Inscription} from "../com.project.frontEnd.model/Inscription";
-import {Classe} from "../com.project.frontEnd.model/Classe";
-import {Etudiant} from "../com.project.frontEnd.model/Etudiant";
 import {AuthenticationService} from "./AuthenticationService";
 
 const httpOptions = {
@@ -13,6 +11,7 @@ const httpOptions = {
 export class InscriptionService {
 
   private uriApi_create;
+  private uri_getInscriptionByUsername;
 
   constructor(private httpClient:HttpClient,private  auth:AuthenticationService) {}
 
@@ -24,20 +23,59 @@ export class InscriptionService {
 
 
 
-  public saveEtudiantApi(etudiant:Etudiant,role:string,idClasse:number){
+  public saveEtudiantApi(inscription:Inscription,idClasse:number){
     if (this.jwt == null) {
       this.jwt = this.auth.loadJWT();
     }
-    this.uriApi_create= "http://localhost:8080/Account/createEtudiant/"+role+"/"+idClasse;
+    this.uriApi_create= "http://localhost:8080/Account/createEtudiant/ETUDIANT/"+idClasse;
     let headers=new HttpHeaders();
     headers.append('authorization',this.jwt);
-    return  this.httpClient.post(this.uriApi_create,etudiant,{headers:new HttpHeaders({'Authorization':this.jwt})
+    return  this.httpClient.post(this.uriApi_create,inscription,{headers:new HttpHeaders({'Authorization':this.jwt})
+    });
+
+  }
+
+
+  // GET
+  public getInscriptionEtudiantByUsername(username:string){
+    if (this.jwt == null) {
+      this.jwt = this.auth.loadJWT();
+    }
+    this.uri_getInscriptionByUsername= "http://localhost:8080/Inscription/getInscriptionByUsername/"+username;
+    let headers=new HttpHeaders();
+    headers.append('authorization',this.jwt);
+    return  this.httpClient.get<Inscription[]>(this.uri_getInscriptionByUsername,{headers:new HttpHeaders({'Authorization':this.jwt})
     });
 
   }
 
 
 
+
+  // GET by ID 
+  public getInscriptionById(idInscription:number){
+    if (this.jwt == null) {
+      this.jwt = this.auth.loadJWT();
+    }
+    
+    let headers=new HttpHeaders();
+    headers.append('authorization',this.jwt);
+    return  this.httpClient.get<Inscription>("http://localhost:8080/Inscription/getInscriptionById/"+idInscription,{headers:new HttpHeaders({'Authorization':this.jwt})
+    });
+
+  }
+  // PUT by ID 
+  public updateInscription(inscription:Inscription,idInscription:number,idp:number){
+    if (this.jwt == null) {
+      this.jwt = this.auth.loadJWT();
+    }
+    
+    let headers=new HttpHeaders();
+    headers.append('authorization',this.jwt);
+    return  this.httpClient.put("http://localhost:8080/Inscription/modifierInscription/"+idInscription+"/"+idp,inscription,{headers:new HttpHeaders({'Authorization':this.jwt})
+    });
+
+  }
 
 
 
